@@ -1,6 +1,8 @@
 #ifndef TEXTCONTAINER_H
 #define TEXTCONTAINER_H
 
+#include <cstddef>
+
 /**
  * @class TextContainer
  * @brief Represents a container for text data.
@@ -24,6 +26,7 @@ class TextContainer {
    private:
     // хитрый пример inline без определения в хедере с.м. .cpp
     inline static bool default_delimeters(const char c) noexcept;
+    static bool utf8_delimiter(const char* const Buffer, size_t* const length) noexcept;
     static char* const tokenize(char* const Buffer, bool (*isDelimeter)(const char c)) noexcept;
 };
 #endif  // TEXTCONTAINER_H
